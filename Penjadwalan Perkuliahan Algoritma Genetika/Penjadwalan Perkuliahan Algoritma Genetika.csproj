@@ -1,0 +1,178 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{947045FD-1579-44F7-A89C-A87E8F8C5FC5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Penjadwalan_Perkuliahan_Algoritma_Genetika</RootNamespace>
+    <AssemblyName>Penjadwalan Perkuliahan Algoritma Genetika</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="dosen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="dosen.Designer.cs">
+      <DependentUpon>dosen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="matakuliah.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="matakuliah.Designer.cs">
+      <DependentUpon>matakuliah.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="proses_algoritma_genetika.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="proses_algoritma_genetika.Designer.cs">
+      <DependentUpon>proses_algoritma_genetika.cs</DependentUpon>
+    </Compile>
+    <Compile Include="relasi_matakuliah_dosen_ruangan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="relasi_matakuliah_dosen_ruangan.Designer.cs">
+      <DependentUpon>relasi_matakuliah_dosen_ruangan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ruangan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ruangan.Designer.cs">
+      <DependentUpon>ruangan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="setting_parameter_algoritma_genetika.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="setting_parameter_algoritma_genetika.Designer.cs">
+      <DependentUpon>setting_parameter_algoritma_genetika.cs</DependentUpon>
+    </Compile>
+    <Compile Include="tambah_dosen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tambah_dosen.Designer.cs">
+      <DependentUpon>tambah_dosen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="tambah_matakuliah.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tambah_matakuliah.Designer.cs">
+      <DependentUpon>tambah_matakuliah.cs</DependentUpon>
+    </Compile>
+    <Compile Include="tambah_ruangan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tambah_ruangan.Designer.cs">
+      <DependentUpon>tambah_ruangan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="waktu_larangan_dosen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="waktu_larangan_dosen.Designer.cs">
+      <DependentUpon>waktu_larangan_dosen.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="dosen.resx">
+      <DependentUpon>dosen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="matakuliah.resx">
+      <DependentUpon>matakuliah.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="proses_algoritma_genetika.resx">
+      <DependentUpon>proses_algoritma_genetika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="relasi_matakuliah_dosen_ruangan.resx">
+      <DependentUpon>relasi_matakuliah_dosen_ruangan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ruangan.resx">
+      <DependentUpon>ruangan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="setting_parameter_algoritma_genetika.resx">
+      <DependentUpon>setting_parameter_algoritma_genetika.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tambah_dosen.resx">
+      <DependentUpon>tambah_dosen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tambah_matakuliah.resx">
+      <DependentUpon>tambah_matakuliah.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tambah_ruangan.resx">
+      <DependentUpon>tambah_ruangan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="waktu_larangan_dosen.resx">
+      <DependentUpon>waktu_larangan_dosen.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
