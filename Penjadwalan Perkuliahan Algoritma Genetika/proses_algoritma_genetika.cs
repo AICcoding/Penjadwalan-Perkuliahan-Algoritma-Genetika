@@ -16,5 +16,7 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
         {
             InitializeComponent();
         }
+
+
     }
 }
