@@ -32,6 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.9.6.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -44,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="conectionservice.cs" />
     <Compile Include="dosen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -106,6 +108,18 @@
     <Compile Include="tambah_ruangan.Designer.cs">
       <DependentUpon>tambah_ruangan.cs</DependentUpon>
     </Compile>
+    <Compile Include="tambah_waktu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="tambah_waktu.Designer.cs">
+      <DependentUpon>tambah_waktu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="waktu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="waktu.Designer.cs">
+      <DependentUpon>waktu.cs</DependentUpon>
+    </Compile>
     <Compile Include="waktu_larangan_dosen.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -150,6 +164,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="tambah_ruangan.resx">
       <DependentUpon>tambah_ruangan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="tambah_waktu.resx">
+      <DependentUpon>tambah_waktu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="waktu.resx">
+      <DependentUpon>waktu.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="waktu_larangan_dosen.resx">
       <DependentUpon>waktu_larangan_dosen.cs</DependentUpon>

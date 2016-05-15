@@ -35,6 +35,7 @@
             this.mataKuliahToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dosenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ruangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.waktuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.waktuLaranganDosenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prosesAlgoritmaGenetikaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -73,6 +74,7 @@
             this.mataKuliahToolStripMenuItem,
             this.dosenToolStripMenuItem,
             this.ruangToolStripMenuItem,
+            this.waktuToolStripMenuItem,
             this.mataToolStripMenuItem,
             this.waktuLaranganDosenToolStripMenuItem});
             this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
@@ -99,6 +101,13 @@
             this.ruangToolStripMenuItem.Size = new System.Drawing.Size(281, 22);
             this.ruangToolStripMenuItem.Text = "Ruang";
             this.ruangToolStripMenuItem.Click += new System.EventHandler(this.ruangToolStripMenuItem_Click);
+            // 
+            // waktuToolStripMenuItem
+            // 
+            this.waktuToolStripMenuItem.Name = "waktuToolStripMenuItem";
+            this.waktuToolStripMenuItem.Size = new System.Drawing.Size(281, 22);
+            this.waktuToolStripMenuItem.Text = "Waktu";
+            this.waktuToolStripMenuItem.Click += new System.EventHandler(this.waktuToolStripMenuItem_Click);
             // 
             // mataToolStripMenuItem
             // 
@@ -154,7 +163,10 @@
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(12, 379);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(39, 13);
@@ -163,6 +175,8 @@
             // 
             // progressBar1
             // 
+            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.progressBar1.Location = new System.Drawing.Point(57, 373);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(658, 23);
@@ -172,6 +186,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(727, 408);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.label1);
@@ -206,6 +222,7 @@
         private System.Windows.Forms.ToolStripMenuItem tentangAplikasiToolStripMenuItem;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.ToolStripMenuItem waktuToolStripMenuItem;
     }
 }
 

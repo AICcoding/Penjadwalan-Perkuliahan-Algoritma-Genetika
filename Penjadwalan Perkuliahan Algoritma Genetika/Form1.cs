@@ -75,5 +75,11 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
             MessageBox.Show("- Aplikasi ini merupakan aplikasi penjadwalan perkuliahan dengan menggunakan metode algorita genetika.\n\n- Algoritma genetika merupakan algoritma back to nature, sehingga penggabungan dari teknologi dan back to nature menghasilkan sesuatu yang mendekati sempurna, dalam hal ini penjadwalan perkuliahan.", "Tentang Aplikasi", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
+
+        private void waktuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            waktu a = new waktu();
+            DialogResult dr = a.ShowDialog();
+        }
     }
 }

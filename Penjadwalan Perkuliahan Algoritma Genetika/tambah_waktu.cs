@@ -11,34 +11,34 @@ using System.Windows.Forms;
 
 namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
 {
-    public partial class tambah_matakuliah : Form
+    public partial class tambah_waktu : Form
     {
         MySqlConnection conn = conectionservice.getconection();
-        System.Windows.Forms.Form f = System.Windows.Forms.Application.OpenForms["matakuliah"];
+        System.Windows.Forms.Form f = System.Windows.Forms.Application.OpenForms["waktu"];
 
-
-        public tambah_matakuliah()
+        public tambah_waktu()
         {
             InitializeComponent();
+            comboBox1.SelectedIndex = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             try
             {
-                string nama, sks, semester;
-                nama = textBox2.Text;
-                sks = numericUpDown1.Value.ToString();
-                semester = numericUpDown2.Value.ToString();
+                string jam;
+                int hari;
+                jam = textBox1.Text;
+                hari = comboBox1.SelectedIndex+1;
 
-                nama = nama.Trim();
-                if (nama == "")
+                jam = jam.Trim();
+                if (jam == "")
                 {
                     MessageBox.Show("Form masukan belum diisi !", "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 else
                 {
-                    string SQL = "INSERT INTO matkul (nama, sks, semester) VALUES ('" + nama + "', '" + sks + "', '" + semester + "');";
+                    string SQL = "INSERT INTO waktu (hari, jam) VALUES (" + hari + ", '" + jam + "');";
                     conn.Open();
                     MySqlCommand cmd = new MySqlCommand(SQL, conn);
                     MySqlDataReader reader = cmd.ExecuteReader();
@@ -48,10 +48,10 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
                     }
                     conn.Close();
                     MessageBox.Show("Berhasil menambahkan data", "Berhasil", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ((matakuliah)f).tampilkan_data();
-                }           
+                    ((waktu)f).tampilkan_data();
+                }                
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }   

@@ -16,5 +16,11 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            proses_algoritma_genetika a = new proses_algoritma_genetika();
+            DialogResult dr = a.ShowDialog();
+        }
     }
 }

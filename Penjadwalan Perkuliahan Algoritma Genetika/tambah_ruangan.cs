@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,44 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
 {
     public partial class tambah_ruangan : Form
     {
+        MySqlConnection conn = conectionservice.getconection();
+        System.Windows.Forms.Form f = System.Windows.Forms.Application.OpenForms["ruangan"];
+
         public tambah_ruangan()
         {
             InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string nama;
+                nama = textBox2.Text;
+                nama = nama.Trim();
+                if (nama == "")
+                {
+                    MessageBox.Show("Form masukan belum diisi !", "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    string SQL = "INSERT INTO ruangan (nama) VALUES ('" + nama + "');";
+                    conn.Open();
+                    MySqlCommand cmd = new MySqlCommand(SQL, conn);
+                    MySqlDataReader reader = cmd.ExecuteReader();
+                    while (reader.Read())
+                    {
+
+                    }
+                    conn.Close();
+                    MessageBox.Show("Berhasil menambahkan data", "Berhasil", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ((ruangan)f).tampilkan_data();
+                }  
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }   
         }
     }
 }

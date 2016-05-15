@@ -11,21 +11,14 @@ using System.Windows.Forms;
 
 namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
 {
-    public partial class dosen : Form
+    public partial class waktu : Form
     {
         MySqlConnection conn = conectionservice.getconection();
 
-        public dosen()
+        public waktu()
         {
             InitializeComponent();
-
             tampilkan_data();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            tambah_dosen a = new tambah_dosen();
-            DialogResult dr = a.ShowDialog();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -49,27 +42,35 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
             }
         }
 
-
-
+        private void button1_Click(object sender, EventArgs e)
+        {
+            tambah_waktu a = new tambah_waktu();
+            DialogResult dr = a.ShowDialog();
+        }
 
 
         public void tampilkan_data()
         {
             try
             {
+
                 conn.Open();
                 MySqlDataAdapter da = new MySqlDataAdapter();
                 MySqlCommand command = conn.CreateCommand();
-                command.CommandText = "SELECT * FROM dosen;";
+                command.CommandText = "SELECT * FROM waktu;";
                 da.SelectCommand = command;
                 DataSet ds = new DataSet();
                 da.Fill(ds, "hasil");
                 dataGridView1.DataSource = ds;
                 dataGridView1.DataMember = "hasil";
+                                
                 conn.Close();
 
-                dataGridView1.Columns[0].HeaderText = "ID dosen";
-                dataGridView1.Columns[1].HeaderText = "Nama dosen";
+                dataGridView1.Columns[0].HeaderText = "ID waktu";
+                dataGridView1.Columns[1].HeaderText = "Hari";
+                dataGridView1.Columns[2].HeaderText = "Jam";
+
+                //konversi_kode_hari();
 
             }
             catch (Exception ex)
@@ -84,7 +85,7 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
             {
                 try
                 {
-                    string SQL = "DELETE FROM dosen;";
+                    string SQL = "DELETE FROM waktu;";
                     conn.Open();
                     MySqlCommand cmd = new MySqlCommand(SQL, conn);
                     MySqlDataReader reader = cmd.ExecuteReader();
@@ -107,7 +108,7 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
         {
             try
             {
-                string SQL = "DELETE FROM dosen WHERE id=" + id + ";";
+                string SQL = "DELETE FROM waktu WHERE id=" + id + ";";
                 conn.Open();
                 MySqlCommand cmd = new MySqlCommand(SQL, conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -124,6 +125,42 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
                 MessageBox.Show(ex.Message);
             }
         }
-    
+
+        private void konversi_kode_hari()
+        {
+            int kode;
+            dataGridView1.Columns.Add("Column4", "Nama hari");
+
+
+            for(int i=0;i<dataGridView1.Rows.Count;i++)
+            {
+                String hasil;
+                kode = (int)dataGridView1.Rows[i].Cells[1].Value;
+
+                switch(kode)
+                {
+                    case 1:
+                        hasil = "(1) Senin";
+                        break;
+                    case 2:
+                        hasil = "(2) Selasa";
+                        break;
+                    case 3:
+                        hasil = "(3) Rabu";
+                        break;
+                    case 4:
+                        hasil = "(4) Kamis";
+                        break;
+                    case 5:
+                        hasil = "(5) Jumat";
+                        break;
+                    default:
+                        hasil = "(0) Minggu";
+                        break;
+                }
+                dataGridView1.Rows[i].Cells[3].Value = hasil;
+
+            }
+        }
     }
 }
