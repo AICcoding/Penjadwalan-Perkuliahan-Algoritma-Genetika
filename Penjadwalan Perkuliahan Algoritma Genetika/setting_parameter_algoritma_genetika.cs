@@ -28,6 +28,7 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
         public setting_parameter_algoritma_genetika()
         {
             InitializeComponent();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -121,13 +122,36 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
             //Buat ag
             AG ag = new AG(jumlahKromosom, mataKuliah, dosenMK, ruangan, waktu, tabelBentrok);
 
-            ag.kromosom[0].hitungFitness();
+            for (int i = 0; i < ag.kromosom.Length; i++)
+            {
+                for (int j = 0; j < ag.kromosom[0].jumlahGen; j++)
+                {
+                    StringBuilder sb = new StringBuilder();
+                    sb.Append(ag.kromosom[i].gen[j, 0] + ",");
+                    sb.Append(ag.kromosom[i].gen[j, 1] + ",");
+                    sb.Append(ag.kromosom[i].gen[j, 2] + ",");
+
+                    MessageBox.Show("KROMOSOM " + (i + 1) + ": " + ag.kromosom[i].gen[j, 0].ToString() + "," + ag.kromosom[i].gen[j, 1].ToString() + "," + ag.kromosom[i].gen[j, 2].ToString() + ",");
+                }
+            }
+
+            ag.hitungFitness();
+            ag.seleksi();
+            ag.crossover();
+            ag.mutasi();
+
+            for (int i = 0; i < jumlahKromosom; i++)
+            {
+                MessageBox.Show("FITNESS K"+ (i+1) + ": " + ag.kromosom[i].fitness.ToString());
+            }
+            MessageBox.Show("TOTAL FITNESS di form lain : " + ag.totalFitness.ToString());
 
             //MESEGBOX UNTUK KROMOSOM 1 GEN NEEEEEEEEE
-            MessageBox.Show("BENTROK RUANGAN: " + ag.kromosom[0].bentrokBR.ToString());
+            /*MessageBox.Show("BENTROK RUANGAN: " + ag.kromosom[0].bentrokBR.ToString());
             MessageBox.Show("BENTROK DOSEN MK: " + ag.kromosom[0].bentrokDK.ToString());
-            MessageBox.Show("BENTROK DOSEN LARANG: " + ag.kromosom[0].waktuWD.ToString());
+            MessageBox.Show("BENTROK DOSEN LARANG: " + ag.kromosom[0].waktuWD.ToString());*/
 
+            MessageBox.Show("Sesudah seleksi");
             for (int i = 0; i < ag.kromosom.Length; i++)
             {
                 for (int j = 0; j < ag.kromosom[0].jumlahGen; j++)
