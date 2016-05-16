@@ -22,16 +22,30 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
         double probabilitasCrossover = 0.5;
 
         double[] randomMutasi;
-        List<int> waktu;
         double probabilitasMutasi = 0.1;
 
         public double totalFitness;
 
+        public Kromosom terbaik; //kromosom terbaik
+
+        int[] dosenMK;
+        int[] mataKuliah;
+        List<int> ruangan;
+        List<int> waktu;
+        int[,] tabelBentrok;
+
         public AG(int jumlahKromosom, int[] mataKuliah, int[] dosenMK, List<int> ruangan, List<int> waktu, int[,] tabelBentrok)
         {
             this.jumlahKromosom = jumlahKromosom;
+            this.mataKuliah = mataKuliah;
+            this.dosenMK = dosenMK;
+            this.ruangan = ruangan;
             this.waktu = waktu;
+            this.tabelBentrok = tabelBentrok;
+        }
 
+        public void init()
+        {
             kromosom = new Kromosom[jumlahKromosom];
             hasilSeleksi = new Kromosom[jumlahKromosom];
 
@@ -221,7 +235,36 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
                     kromosom[baris].gen[kolom, 2] = waktu[index + 1];
                 }
             }
+        }
 
+        public bool cekTerbaik()
+        {
+            int optimal = -1;
+            int maks = 0;
+
+            for(int i = 0; i < jumlahKromosom; i++)
+            {
+                if(kromosom[maks].fitness < kromosom[i].fitness)
+                {
+                    maks = i;
+                }
+                if (kromosom[maks].fitness == 1)
+                {
+                    optimal = maks;
+                    break;
+                }
+            }
+
+            if(optimal != -1)
+            {
+                terbaik = kromosom[optimal];
+                return true;
+            }
+            else
+            {
+                terbaik = kromosom[maks];
+                return false;
+            }
         }
     }
 }
