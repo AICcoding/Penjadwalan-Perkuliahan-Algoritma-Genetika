@@ -75,8 +75,8 @@
             this.dosenToolStripMenuItem,
             this.ruangToolStripMenuItem,
             this.waktuToolStripMenuItem,
-            this.mataToolStripMenuItem,
-            this.waktuLaranganDosenToolStripMenuItem});
+            this.waktuLaranganDosenToolStripMenuItem,
+            this.mataToolStripMenuItem});
             this.dataToolStripMenuItem.Name = "dataToolStripMenuItem";
             this.dataToolStripMenuItem.Size = new System.Drawing.Size(210, 22);
             this.dataToolStripMenuItem.Text = "Data";
@@ -84,42 +84,42 @@
             // mataKuliahToolStripMenuItem
             // 
             this.mataKuliahToolStripMenuItem.Name = "mataKuliahToolStripMenuItem";
-            this.mataKuliahToolStripMenuItem.Size = new System.Drawing.Size(281, 22);
+            this.mataKuliahToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.mataKuliahToolStripMenuItem.Text = "Mata kuliah";
             this.mataKuliahToolStripMenuItem.Click += new System.EventHandler(this.mataKuliahToolStripMenuItem_Click);
             // 
             // dosenToolStripMenuItem
             // 
             this.dosenToolStripMenuItem.Name = "dosenToolStripMenuItem";
-            this.dosenToolStripMenuItem.Size = new System.Drawing.Size(281, 22);
+            this.dosenToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.dosenToolStripMenuItem.Text = "Dosen";
             this.dosenToolStripMenuItem.Click += new System.EventHandler(this.dosenToolStripMenuItem_Click);
             // 
             // ruangToolStripMenuItem
             // 
             this.ruangToolStripMenuItem.Name = "ruangToolStripMenuItem";
-            this.ruangToolStripMenuItem.Size = new System.Drawing.Size(281, 22);
+            this.ruangToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.ruangToolStripMenuItem.Text = "Ruang";
             this.ruangToolStripMenuItem.Click += new System.EventHandler(this.ruangToolStripMenuItem_Click);
             // 
             // waktuToolStripMenuItem
             // 
             this.waktuToolStripMenuItem.Name = "waktuToolStripMenuItem";
-            this.waktuToolStripMenuItem.Size = new System.Drawing.Size(281, 22);
+            this.waktuToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.waktuToolStripMenuItem.Text = "Waktu";
             this.waktuToolStripMenuItem.Click += new System.EventHandler(this.waktuToolStripMenuItem_Click);
             // 
             // mataToolStripMenuItem
             // 
             this.mataToolStripMenuItem.Name = "mataToolStripMenuItem";
-            this.mataToolStripMenuItem.Size = new System.Drawing.Size(281, 22);
-            this.mataToolStripMenuItem.Text = "Relasi Mata kuliah, Dosen dan Ruangan";
+            this.mataToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
+            this.mataToolStripMenuItem.Text = "Relasi Mata kuliah dan dosen";
             this.mataToolStripMenuItem.Click += new System.EventHandler(this.mataToolStripMenuItem_Click);
             // 
             // waktuLaranganDosenToolStripMenuItem
             // 
             this.waktuLaranganDosenToolStripMenuItem.Name = "waktuLaranganDosenToolStripMenuItem";
-            this.waktuLaranganDosenToolStripMenuItem.Size = new System.Drawing.Size(281, 22);
+            this.waktuLaranganDosenToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.waktuLaranganDosenToolStripMenuItem.Text = "Waktu larangan dosen";
             this.waktuLaranganDosenToolStripMenuItem.Click += new System.EventHandler(this.waktuLaranganDosenToolStripMenuItem_Click);
             // 
@@ -198,6 +198,7 @@
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Penjadwalan Perkuliahan Algoritma Genetika";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

@@ -47,7 +47,7 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
             hitungBentrokRuangan();
             hitungWaktuDosen();
 
-            fitness = 1 / (1 + (bentrokDK + bentrokBR + waktuWD));
+            fitness = 1F / (1F + ((float)bentrokDK + (float)bentrokBR + (float)waktuWD));
         }
 
         public void hitungDosenBentrok() //Dosen ngajar lebih dari 1 dalam suatu waktu tapi beda matkul

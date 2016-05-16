@@ -46,7 +46,7 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedIndex == -1 || comboBox3.SelectedIndex == -1 || comboBox2.SelectedIndex==-1)
+            if (comboBox1.SelectedIndex == -1 || comboBox3.SelectedIndex == -1)
             {
                 MessageBox.Show("Silakan pilih data terlebih dahulu!", "Gagal", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -80,18 +80,7 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
                     String data = "(" + reader.GetString("id") + ") " + reader.GetString("nama");
                     comboBox3.Items.Add(data);
                 }
-                conn.Close();
-
-                conn.Open();
-                SQL = "SELECT * FROM ruangan;";
-                cmd = new MySqlCommand(SQL, conn);
-                reader = cmd.ExecuteReader();
-                while (reader.Read())
-                {
-                    String data = "(" + reader.GetString("id") + ") " + reader.GetString("nama");
-                    comboBox2.Items.Add(data);
-                }
-                conn.Close();
+                conn.Close();                
             }
             catch (Exception ex)
             {
@@ -106,7 +95,7 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
                 conn.Open();
                 MySqlDataAdapter da = new MySqlDataAdapter();
                 MySqlCommand command = conn.CreateCommand();
-                command.CommandText = "SELECT * FROM matkul_dosen, matkul, dosen, ruangan WHERE matkul_dosen.id_dosen=dosen.id AND matkul_dosen.id_matkul=matkul.id AND matkul_dosen.id_ruangan=ruangan.id;";
+                command.CommandText = "SELECT * FROM matkul_dosen, matkul, dosen WHERE matkul_dosen.id_dosen=dosen.id AND matkul_dosen.id_matkul=matkul.id;";
 
                 da.SelectCommand = command;
                 DataSet ds = new DataSet();
@@ -118,19 +107,15 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
                 dataGridView1.Columns[0].HeaderText = "ID relasi";
                 dataGridView1.Columns[1].HeaderText = "ID matkul";
                 dataGridView1.Columns[2].HeaderText = "ID dosen";
-                dataGridView1.Columns[3].HeaderText = "ID ruangan";
-                dataGridView1.Columns[4].HeaderText = "ID matkul";
-                dataGridView1.Columns[5].HeaderText = "Nama matkul";
-                dataGridView1.Columns[6].HeaderText = "Jumlah SKS";
-                dataGridView1.Columns[7].HeaderText = "Semester";
-                dataGridView1.Columns[8].HeaderText = "ID dosen";
-                dataGridView1.Columns[9].HeaderText = "Nama dosen";
-                dataGridView1.Columns[10].HeaderText = "ID ruangan";
-                dataGridView1.Columns[11].HeaderText = "Nama ruangan";
+                dataGridView1.Columns[3].HeaderText = "ID matkul";
+                dataGridView1.Columns[4].HeaderText = "Nama matkul";
+                dataGridView1.Columns[5].HeaderText = "Jumlah SKS";
+                dataGridView1.Columns[6].HeaderText = "Semester";
+                dataGridView1.Columns[7].HeaderText = "ID dosen";
+                dataGridView1.Columns[8].HeaderText = "Nama dosen";
 
                 dataGridView1.Columns[1].Visible = false;
                 dataGridView1.Columns[2].Visible = false;
-                dataGridView1.Columns[3].Visible = false;
 
             }
             catch (Exception ex)
@@ -193,9 +178,8 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
                 int id_matkul, id_dosen, id_ruangan;
                 id_matkul = cari_id(1);  //matkul
                 id_dosen = cari_id(2);   //dosen
-                id_ruangan = cari_id(3); //ruangan
 
-                string SQL = "INSERT INTO matkul_dosen (id_matkul, id_dosen, id_ruangan) VALUES (" + id_matkul + ", " + id_dosen + ", "+id_ruangan+");";
+                string SQL = "INSERT INTO matkul_dosen (id_matkul, id_dosen) VALUES (" + id_matkul + ", " + id_dosen + ");";
                 conn.Open();
                 MySqlCommand cmd = new MySqlCommand(SQL, conn);
                 MySqlDataReader reader = cmd.ExecuteReader();
@@ -225,15 +209,11 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
             {
                 data = comboBox1.Text;
             }
-            else if(tipe==2) //dosen
+            else
             {
                 data = comboBox3.Text;
             }
-            else //ruangan
-            {
-                data = comboBox2.Text;
-            }
-
+            
             int indek_tmp;
             for (int i = 0; i < data.Length; i++)
             {
