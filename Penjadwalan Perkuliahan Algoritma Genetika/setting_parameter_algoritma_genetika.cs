@@ -122,48 +122,76 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
             //Buat ag
             AG ag = new AG(jumlahKromosom, mataKuliah, dosenMK, ruangan, waktu, tabelBentrok);
 
+            MessageBox.Show("Populasi Awal");
+            StringBuilder sbx = new StringBuilder();
             for (int i = 0; i < ag.kromosom.Length; i++)
             {
+                sbx.Append("KROMOSOM " + (i + 1) + ": ");
                 for (int j = 0; j < ag.kromosom[0].jumlahGen; j++)
                 {
-                    StringBuilder sb = new StringBuilder();
-                    sb.Append(ag.kromosom[i].gen[j, 0] + ",");
-                    sb.Append(ag.kromosom[i].gen[j, 1] + ",");
-                    sb.Append(ag.kromosom[i].gen[j, 2] + ",");
 
-                    MessageBox.Show("KROMOSOM " + (i + 1) + ": " + ag.kromosom[i].gen[j, 0].ToString() + "," + ag.kromosom[i].gen[j, 1].ToString() + "," + ag.kromosom[i].gen[j, 2].ToString() + ",");
+                    sbx.Append(ag.kromosom[i].gen[j, 0] + ",");
+                    sbx.Append(ag.kromosom[i].gen[j, 1] + ",");
+                    sbx.Append(ag.kromosom[i].gen[j, 2] + "|");
+
+
                 }
+                sbx.Append("\n");
             }
+            MessageBox.Show(sbx.ToString());
 
             ag.hitungFitness();
             ag.seleksi();
             ag.crossover();
-            ag.mutasi();
 
-            for (int i = 0; i < jumlahKromosom; i++)
+
+            /*for (int i = 0; i < jumlahKromosom; i++)
             {
                 MessageBox.Show("FITNESS K"+ (i+1) + ": " + ag.kromosom[i].fitness.ToString());
             }
-            MessageBox.Show("TOTAL FITNESS di form lain : " + ag.totalFitness.ToString());
+            MessageBox.Show("TOTAL FITNESS di form lain : " + ag.totalFitness.ToString());*/
 
             //MESEGBOX UNTUK KROMOSOM 1 GEN NEEEEEEEEE
             /*MessageBox.Show("BENTROK RUANGAN: " + ag.kromosom[0].bentrokBR.ToString());
             MessageBox.Show("BENTROK DOSEN MK: " + ag.kromosom[0].bentrokDK.ToString());
             MessageBox.Show("BENTROK DOSEN LARANG: " + ag.kromosom[0].waktuWD.ToString());*/
 
-            MessageBox.Show("Sesudah seleksi");
+            /*MessageBox.Show("Sesudah crossover");
+            StringBuilder sb = new StringBuilder();
             for (int i = 0; i < ag.kromosom.Length; i++)
             {
+                sb.Append("KROMOSOM " + (i + 1) + ": ");
                 for (int j = 0; j < ag.kromosom[0].jumlahGen; j++)
                 {
-                    StringBuilder sb = new StringBuilder();
+
                     sb.Append(ag.kromosom[i].gen[j, 0] + ",");
                     sb.Append(ag.kromosom[i].gen[j, 1] + ",");
-                    sb.Append(ag.kromosom[i].gen[j, 2] + ",");
+                    sb.Append(ag.kromosom[i].gen[j, 2] + "|");
 
-                    MessageBox.Show("KROMOSOM " + (i+1) + ": " + ag.kromosom[i].gen[j, 0].ToString() + "," + ag.kromosom[i].gen[j, 1].ToString() + "," + ag.kromosom[i].gen[j, 2].ToString() + ",");
+                    
                 }
+                sb.Append("\n");
             }
+            MessageBox.Show(sb.ToString());*/
+
+            ag.mutasi();
+            /*MessageBox.Show("Sesudah mutasi");
+            StringBuilder sb2 = new StringBuilder();
+            for (int i = 0; i < ag.kromosom.Length; i++)
+            {
+                sb2.Append("KROMOSOM " + (i + 1) + ": ");
+                for (int j = 0; j < ag.kromosom[0].jumlahGen; j++)
+                {
+
+                    sb2.Append(ag.kromosom[i].gen[j, 0] + ",");
+                    sb2.Append(ag.kromosom[i].gen[j, 1] + ",");
+                    sb2.Append(ag.kromosom[i].gen[j, 2] + "|");
+
+
+                }
+                sb2.Append("\n");
+            }
+            MessageBox.Show(sb2.ToString());*/
 
             /*for(int i = 0; i < jumlahKromosom; i++)
             {
