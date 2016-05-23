@@ -19,10 +19,10 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
 
         double[] randomCrossover;
         List<int> crossoverTerpilih; //kromosom yang akan dicrossover
-        double probabilitasCrossover = 0.5;
+        double probabilitasCrossover;
 
         double[] randomMutasi;
-        double probabilitasMutasi = 0.1;
+        double probabilitasMutasi;
 
         public double totalFitness;
 
@@ -34,7 +34,7 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
         List<int> waktu;
         int[,] tabelBentrok;
 
-        public AG(int jumlahKromosom, int[] mataKuliah, int[] dosenMK, List<int> ruangan, List<int> waktu, int[,] tabelBentrok)
+        public AG(int jumlahKromosom, int[] mataKuliah, int[] dosenMK, List<int> ruangan, List<int> waktu, int[,] tabelBentrok, double pc, double pm)
         {
             this.jumlahKromosom = jumlahKromosom;
             this.mataKuliah = mataKuliah;
@@ -42,6 +42,8 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
             this.ruangan = ruangan;
             this.waktu = waktu;
             this.tabelBentrok = tabelBentrok;
+            this.probabilitasCrossover = pc;
+            this.probabilitasMutasi = pm;
         }
 
         public void init()
@@ -156,7 +158,7 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
                 {
                     for (int j = i + 1; j < crossoverTerpilih.Count; j++)
                     {
-                        MessageBox.Show("Kromosom " + (i + 1) + " >< Kromosom " + (j + 1));
+                        //MessageBox.Show("Kromosom " + (i + 1) + " >< Kromosom " + (j + 1));
                         StringBuilder sbelum1 = new StringBuilder();
                         StringBuilder sbelum2 = new StringBuilder();
                         StringBuilder sesudah1 = new StringBuilder();
@@ -206,7 +208,7 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
             }
             else
             {
-                MessageBox.Show("krossover terpilih kurang dari 2 boss");
+                //MessageBox.Show("krossover terpilih kurang dari 2 boss");
             }
 
         }
@@ -224,9 +226,11 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
                 if(randomMutasi[i] < probabilitasMutasi)
                 {
                     int baris, kolom; //posisi mutasi
+
                     baris = (int)Math.Floor((double)i / (double)kromosom[0].jumlahGen);
                     kolom = i % kromosom[0].jumlahGen;
 
+                    //MessageBox.Show("Mutasi di kolom: " + kolom + " Baris: " + baris);
                     int index = waktu.IndexOf(kromosom[baris].gen[kolom, 2]);
                     if (index == (waktu.Count - 1)) //jika terakhir
                     {

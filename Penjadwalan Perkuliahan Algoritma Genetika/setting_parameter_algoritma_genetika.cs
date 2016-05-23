@@ -15,8 +15,12 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
     {
         MySqlConnection conn = conectionservice.getconection();
 
-        int jumlahKromosom = 5;
+        int maksIterasi;
+        int jumlahKromosom;
         int jumlahGen;
+        double pc;
+        double pm;
+
         int[] mataKuliah;
         int[] dosenMK;
         List<int> ruangan;
@@ -25,12 +29,10 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
         int jumlahTabelBentrok;
         int[,] tabelBentrok;
 
-        int maksIterasi = 10;
 
         public setting_parameter_algoritma_genetika()
         {
             InitializeComponent();
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -38,14 +40,13 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
             /*proses_algoritma_genetika a = new proses_algoritma_genetika();
             DialogResult dr = a.ShowDialog();*/
 
-            
+            #region Inisialisasi variabel dari Database
             using (MySqlCommand cmd = new MySqlCommand("SELECT COUNT(*) FROM matkul_dosen;", conn))
             {
                 conn.Open();
                 jumlahGen = Convert.ToInt32(cmd.ExecuteScalar());
                 conn.Close();
             }
-
 
             mataKuliah = new int[jumlahGen];
             using (MySqlCommand cmd = new MySqlCommand("SELECT * FROM matkul_dosen;", conn))
@@ -120,9 +121,16 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
                 }
                 conn.Close();
             }
+            #endregion
+
+            #region Perhitungan
+            maksIterasi = (int)numericUpDown1.Value;
+            jumlahKromosom = (int)numericUpDown2.Value;
+            pc = (double)numericUpDown3.Value;
+            pm = (double)numericUpDown4.Value;
 
             //Buat ag
-            AG ag = new AG(jumlahKromosom, mataKuliah, dosenMK, ruangan, waktu, tabelBentrok);
+            AG ag = new AG(jumlahKromosom, mataKuliah, dosenMK, ruangan, waktu, tabelBentrok, pc, pm);
 
             ag.init();
             MessageBox.Show("Populasi Awal");
@@ -143,6 +151,7 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
             }
             MessageBox.Show(sbx.ToString());
 
+            bool found = false;
             for (int iterasi = 0; iterasi < maksIterasi; iterasi++)
             {
                 ag.hitungFitness();
@@ -215,15 +224,35 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
                 if (ag.cekTerbaik()) //sudah optimal
                 {
                     MessageBox.Show("Jadwal Optimum Ditemukan!");
+                    found = true;
                     break;
                 }
-                else
+                /*else
                 {
                     MessageBox.Show("Jadwal Optimum Belum Ditemukan :(");
-                }
+                }*/
             }
 
-            //TODO input data kromosom terbaik ke database jadwal_ag.
+            if(found == false)
+            {
+                MessageBox.Show("Maksimum Iterasi telah tercapai.");
+            }
+            #endregion
+
+            /*MessageBox.Show("Optimal:");
+            StringBuilder sby = new StringBuilder();
+            for (int j = 0; j < ag.terbaik.jumlahGen; j++)
+            {
+
+                sby.Append(ag.terbaik.gen[j, 0] + ",");
+                sby.Append(ag.terbaik.gen[j, 1] + ",");
+                sby.Append(ag.terbaik.gen[j, 2] + "|");
+            }
+            sby.Append("\n");
+            MessageBox.Show(sby.ToString());*/
+
+            
+            //TODO input data kromosom terbaik (ag.terbaik) ke database jadwal_ag.
         }
     }
 }
