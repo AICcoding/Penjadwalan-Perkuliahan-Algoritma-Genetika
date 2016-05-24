@@ -53,7 +53,6 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
         {
             try
             {
-
                 conn.Open();
                 MySqlDataAdapter da = new MySqlDataAdapter();
                 MySqlCommand command = conn.CreateCommand();

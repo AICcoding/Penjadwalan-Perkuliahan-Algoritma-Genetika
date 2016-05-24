@@ -36,8 +36,8 @@
             this.dosenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ruangToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.waktuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.waktuLaranganDosenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mataToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.prosesAlgoritmaGenetikaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bantuanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cekUpdateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -109,19 +109,19 @@
             this.waktuToolStripMenuItem.Text = "Waktu";
             this.waktuToolStripMenuItem.Click += new System.EventHandler(this.waktuToolStripMenuItem_Click);
             // 
-            // mataToolStripMenuItem
-            // 
-            this.mataToolStripMenuItem.Name = "mataToolStripMenuItem";
-            this.mataToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
-            this.mataToolStripMenuItem.Text = "Relasi Mata kuliah dan dosen";
-            this.mataToolStripMenuItem.Click += new System.EventHandler(this.mataToolStripMenuItem_Click);
-            // 
             // waktuLaranganDosenToolStripMenuItem
             // 
             this.waktuLaranganDosenToolStripMenuItem.Name = "waktuLaranganDosenToolStripMenuItem";
             this.waktuLaranganDosenToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.waktuLaranganDosenToolStripMenuItem.Text = "Waktu larangan dosen";
             this.waktuLaranganDosenToolStripMenuItem.Click += new System.EventHandler(this.waktuLaranganDosenToolStripMenuItem_Click);
+            // 
+            // mataToolStripMenuItem
+            // 
+            this.mataToolStripMenuItem.Name = "mataToolStripMenuItem";
+            this.mataToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
+            this.mataToolStripMenuItem.Text = "Relasi Mata kuliah dan dosen";
+            this.mataToolStripMenuItem.Click += new System.EventHandler(this.mataToolStripMenuItem_Click);
             // 
             // prosesAlgoritmaGenetikaToolStripMenuItem
             // 
@@ -222,8 +222,8 @@
         private System.Windows.Forms.ToolStripMenuItem creditToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tentangAplikasiToolStripMenuItem;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.ToolStripMenuItem waktuToolStripMenuItem;
+        public System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 
