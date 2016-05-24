@@ -54,6 +54,7 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
             for (int i = 0; i < jumlahKromosom; i++)
             {
                 kromosom[i] = new Kromosom(r1, mataKuliah, dosenMK, ruangan, waktu, tabelBentrok);
+                hasilSeleksi[i] = new Kromosom(r1, mataKuliah, dosenMK, ruangan, waktu, tabelBentrok);
             }
         }
 
@@ -101,7 +102,7 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
 
             Random r = new Random();
             randomSeleksi = new double[jumlahKromosom];
-            hasilSeleksi = (Kromosom[])kromosom.Clone();
+            //hasilSeleksi = (Kromosom[])kromosom.Clone();
 
             for (int i = 0; i < jumlahKromosom; i++)
             {
@@ -120,7 +121,13 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
                     }
                 }
 
-                hasilSeleksi[i].gen = (int[,])kromosom[terpilih].gen.Clone();
+                for (int j = 0; j < hasilSeleksi[0].jumlahGen; j++)
+                {
+                    hasilSeleksi[i].gen[j, 0] = kromosom[terpilih].gen[j, 0];
+                    hasilSeleksi[i].gen[j, 1] = kromosom[terpilih].gen[j, 1];
+                    hasilSeleksi[i].gen[j, 2] = kromosom[terpilih].gen[j, 2];
+                }
+                //hasilSeleksi[i].gen = (int[,])kromosom[terpilih].gen.Clone();
             }
 
             kromosom = hasilSeleksi;

@@ -19,7 +19,7 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
 
         int maksIterasi;
         int jumlahKromosom;
-        int jumlahGen;
+        public int jumlahGen;
         double pc;
         double pm;
 
@@ -135,7 +135,7 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
             ag = new AG(jumlahKromosom, mataKuliah, dosenMK, ruangan, waktu, tabelBentrok, pc, pm);
 
             ag.init();
-            MessageBox.Show("Populasi Awal");
+            /*MessageBox.Show("Populasi Awal");
             StringBuilder sbx = new StringBuilder();
             for (int i = 0; i < ag.kromosom.Length; i++)
             {
@@ -151,7 +151,7 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
                 }
                 sbx.Append("\n");
             }
-            MessageBox.Show(sbx.ToString());
+            MessageBox.Show(sbx.ToString());*/
 
             double per_1_loading, penambahan_loading;
             if(maksIterasi>=100)

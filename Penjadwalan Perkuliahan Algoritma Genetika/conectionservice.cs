@@ -15,7 +15,7 @@ namespace Penjadwalan_Perkuliahan_Algoritma_Genetika
             MySqlConnection conn = null;
             try
             {
-                string connstr = "server=localhost; database=jadwal_kuliah; uid=root; password=;";
+                string connstr = "server=localhost; database=jadwal_kuliah; uid=root; password=root;";
                 conn = new MySqlConnection(connstr);
 
             }
